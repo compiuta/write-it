@@ -1,1 +1,1 @@
-window.app.writeItController.init();
+app.writeItController.init();
