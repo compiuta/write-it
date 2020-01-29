@@ -20,10 +20,13 @@
 
         <div data-js="create-note-modal" class="create-note-modal hide">
             <form action="" class="create-note-form">
+                <input data-js="create-note-title" type="text" class="create-note-title">
                 <textarea data-js="create-note-text-area" class="create-note-text-area"></textarea>
-                <button data-js="create-note-submit" class="create-note-submit"></button>
+                <button data-js="create-note-submit" class="create-note-submit">Save Note</button>
             </form>
         </div>
+
+        <div data-js="create-note-alert" class="create-note-alert hide"></div>
         <script src="js/models/write-it-model.js"></script>
         <script src="js/views/write-it-views.js"></script>
         <script src="js/controllers/write-it-controller.js"></script>
