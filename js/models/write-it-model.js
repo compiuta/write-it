@@ -2,13 +2,17 @@
     let writeItModel = {
         allNotes: {},
         getData: function() {
-
+            for(let i = 0; i < Object.keys(localStorage).length; i++) {
+                this.allNotes['note' + i] = JSON.parse(localStorage.getItem('note' + i));
+            }
         },
         setData: function(noteObject) {
-            localStorage.setItem(Object.keys(allNotes).length + 1, noteObject);
+            localStorage.setItem('note' + (Object.keys(this.allNotes).length), JSON.stringify(noteObject));
+
+            this.getData();
         },
         init: function() {
-
+            this.getData();
         }
     }
 
