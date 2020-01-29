@@ -3,8 +3,30 @@
         toggleCreateNote: function() {
             writeItView.createNoteModal.classList.toggle('hide');
         },
-        populateNotes: function(data) {
+        showNoteAlert: function(message) {
+            this.createNoteAlert.innerText = message;
+            this.createNoteAlert.classList.remove('hide');
+            setTimeout(() => {
+                this.createNoteAlert.classList.add('hide');
+            }, 3000);
+        },
+        createNoteElement: function() {
+            this.noteListContainer = document.createElement('div');
+            this.noteTitle = document.createElement('div');
+            this.noteCreatedDate = document.createElement('div');
+
+            this.noteListContainer.classList.add('note-list-container');
+            this.noteTitle.classList.add('note-list-title');
+            this.noteCreatedDate.classList.add('note-list-date');
             
+            return this.noteCreatedDate, this.noteTitle, this.noteListContainer;
+
+        },
+        populateNoteList: function(data) {
+            this.createNoteElement();
+        },
+        populateNoteArea: function() {
+
         },
         init: function() {
             this.createNoteButton = document.querySelector('[data-js="create-note-button"]');
@@ -14,11 +36,15 @@
             this.createNoteModal = document.querySelector('[data-js="create-note-modal"]');
             this.createNoteTextArea = document.querySelector('[data-js="create-note-text-area"]');
             this.createNoteSubmit = document.querySelector('[data-js="create-note-submit"]');
+            this.createNoteTitle = document.querySelector('[data-js="create-note-title"]');
+            this.createNoteAlert = document.querySelector('[data-js="create-note-alert"]');
 
-            writeItView.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
+            this.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
+
+            this.render();
         },
         render: function() {
-
+            this.populateNoteList();
         }
     }
 
