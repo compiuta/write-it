@@ -37,14 +37,20 @@
                 app.writeItView.noteTitle.innerText = app.writeItModel.allNotes['note' + i].noteTitle;
                 app.writeItView.noteCreatedDate.innerText = app.writeItModel.allNotes['note' + i].noteCreatedDate;
 
+                app.writeItView.noteListContainer.setAttribute('data-note', 'note' + i);
                 app.writeItView.noteListContainer.appendChild(app.writeItView.noteTitle);
                 app.writeItView.noteListContainer.appendChild(app.writeItView.noteCreatedDate);
+                app.writeItView.noteListContainer.addEventListener('click', this.populateNoteArea);
                 noteListFragment.appendChild(app.writeItView.noteListContainer);
             }
             
             app.writeItView.notesContainer.appendChild(noteListFragment);
         },
         populateNoteArea: function() {
+            let selectedNote = this.dataset.note;
+            app.writeItView.notesViewerTitle.innerText = app.writeItModel.allNotes[selectedNote].noteTitle;
+            app.writeItView.notesViewerBody.innerText = app.writeItModel.allNotes[selectedNote].noteBody;
+            app.writeItView.notesViewerDate.innerText = app.writeItModel.allNotes[selectedNote].noteCreatedDate;
 
         },
         init: function() {
