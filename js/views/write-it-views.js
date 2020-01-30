@@ -22,12 +22,6 @@
             return this.noteCreatedDate, this.noteTitle, this.noteListContainer;
 
         },
-        populateNoteList: function(data) {
-            this.createNoteElement();
-        },
-        populateNoteArea: function() {
-
-        },
         init: function() {
             this.createNoteButton = document.querySelector('[data-js="create-note-button"]');
             this.notesContainer = document.querySelector('[data-js="notes-container"]');
@@ -44,7 +38,8 @@
             this.render();
         },
         render: function() {
-            this.populateNoteList();
+            this.notesContainer.innerHTML = '';
+            app.writeItController.populateNoteList();
         }
     }
 
