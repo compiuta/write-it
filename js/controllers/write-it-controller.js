@@ -15,6 +15,8 @@
                 app.writeItView.createNoteTextArea.value = '';
 
                 app.writeItView.showNoteAlert('Message Saved Successfully!');
+
+                app.writeItView.render();
             } else {
                 if(app.writeItView.createNoteTitle.value.replace(/ /g, '') === '') {
                     app.writeItView.createNoteTitle.value = '';
@@ -27,10 +29,28 @@
                 app.writeItView.showNoteAlert('Please Fill Out All Fields');
             }
         },
+        populateNoteList: function() {
+            let noteListFragment = document.createDocumentFragment();
+
+            for(let i = 0; i < Object.keys(app.writeItModel.allNotes).length; i++) {
+                app.writeItView.createNoteElement();
+                app.writeItView.noteTitle.innerText = app.writeItModel.allNotes['note' + i].noteTitle;
+                app.writeItView.noteCreatedDate.innerText = app.writeItModel.allNotes['note' + i].noteCreatedDate;
+
+                app.writeItView.noteListContainer.appendChild(app.writeItView.noteTitle);
+                app.writeItView.noteListContainer.appendChild(app.writeItView.noteCreatedDate);
+                noteListFragment.appendChild(app.writeItView.noteListContainer);
+            }
+            
+            app.writeItView.notesContainer.appendChild(noteListFragment);
+        },
+        populateNoteArea: function() {
+
+        },
         init: function() {
             app.writeItView.init();
             app.writeItModel.init();
-
+            this.populateNoteList();
             app.writeItView.createNoteSubmit.addEventListener('click', this.addNote);
         }
     }
