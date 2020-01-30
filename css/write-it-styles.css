@@ -1,3 +1,8 @@
 .hide {
     display: none;
 }
+
+.note-list-container:hover {
+    cursor: pointer;
+    background-color: grey;
+}
