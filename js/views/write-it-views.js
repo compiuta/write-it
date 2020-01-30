@@ -32,9 +32,11 @@
             this.createNoteSubmit = document.querySelector('[data-js="create-note-submit"]');
             this.createNoteTitle = document.querySelector('[data-js="create-note-title"]');
             this.createNoteAlert = document.querySelector('[data-js="create-note-alert"]');
+            this.notesViewerTitle = document.querySelector('[data-js="notes-viewer-title"]');
+            this.notesViewerDate = document.querySelector('[data-js="notes-viewer-date"]');
+            this.notesViewerBody = document.querySelector('[data-js="notes-viewer-body"]');
 
             this.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
-
             this.render();
         },
         render: function() {
