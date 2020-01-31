@@ -5,31 +5,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Write It!</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/write-it-styles.css">
     </head>
-    <body>
-        <h1>Write It!</h1>
-        <h2>current Notes <a href="javascript:void(0)" data-js="create-note-button" class="create-note-button">create note</a></h2>
-        <div data-js="notes-container" class="notes-container">
-
-        </div>
-        <div class="note-viewer-area">
-            <div class="notes-viewer-header">
-                <h2 data-js="notes-viewer-title" class="notes-title"></h2>
-                <span data-js="notes-viewer-date" class="notes-viewer-date"></span>
+    <body class="body-tag">
+        <header class="main-header">
+            <h1 class="main-title">Write It!</h1>
+        </header>
+        <div class="notes-area-container">
+            <div class="notes-list-area-container">
+                <div data-js="create-note-modal" class="create-note-element hide">
+                    <form action="" class="create-note-form">
+                        <div class="form-element-container">
+                            <label class="form-label" for="note-title">Note Title:</label>
+                            <input id="note-title" data-js="create-note-title" type="text" class="create-note-title form-element">
+                        </div>
+                        <div class="form-element-container">
+                            <label class="form-label" for="note-message">Note Message:</label>
+                            <textarea  id="note-message" data-js="create-note-text-area" class="create-note-text-area form-element"></textarea>
+                        </div>
+                        <button data-js="create-note-submit" class="create-note-submit primary-button">Save Note</button>
+                    </form>
+                    <div data-js="create-note-alert" class="create-note-alert hide"></div>
+                </div>
+                <h2 class="notes-list-title">current Notes <span data-js="create-note-button" class="create-note-button primary-button">create note</span></h2>
+                <div data-js="notes-list-container" class="notes-list-container">
+    
+                </div>
             </div>
-            <p data-js="notes-viewer-body" class="notes-body"></p>
+            <div class="vertical-divider"></div>
+            <div class="note-viewer-area">
+                <div class="notes-viewer-header">
+                    <h2 data-js="notes-viewer-title" class="notes-title"></h2>
+                    <span data-js="notes-viewer-date" class="notes-viewer-date"></span>
+                </div>
+                <p data-js="notes-viewer-body" class="notes-body"></p>
+            </div>
         </div>
 
-        <div data-js="create-note-modal" class="create-note-modal hide">
-            <form action="" class="create-note-form">
-                <input data-js="create-note-title" type="text" class="create-note-title">
-                <textarea data-js="create-note-text-area" class="create-note-text-area"></textarea>
-                <button data-js="create-note-submit" class="create-note-submit">Save Note</button>
-            </form>
-        </div>
-
-        <div data-js="create-note-alert" class="create-note-alert hide"></div>
         <script src="js/models/write-it-model.js"></script>
         <script src="js/views/write-it-views.js"></script>
         <script src="js/controllers/write-it-controller.js"></script>
