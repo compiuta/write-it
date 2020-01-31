@@ -1,6 +1,8 @@
 (function(window){
     let writeItModel = {
         allNotes: {},
+        months: ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"],
         getData: function() {
             for(let i = 0; i < Object.keys(localStorage).length; i++) {
                 this.allNotes['note' + i] = JSON.parse(localStorage.getItem('note' + i));
