@@ -2,10 +2,11 @@
     let writeItController = {
         addNote: function(e) {
             e.preventDefault();
+            let currentDate = new Date();
             let noteObject = {
                 noteTitle: app.writeItView.createNoteTitle.value,
                 noteBody: app.writeItView.createNoteTextArea.value,
-                noteCreatedDate: new Date()
+                noteCreatedDate: app.writeItModel.months[currentDate.getMonth()] + ' ' + currentDate.getDay() + ', ' + currentDate.getFullYear()
             }
 
             if(app.writeItView.createNoteTitle.value.replace(/ /g, '') !== '' && app.writeItView.createNoteTextArea.value.replace(/ /g, '') !== '') {
@@ -47,6 +48,8 @@
             app.writeItView.notesContainer.appendChild(noteListFragment);
         },
         populateNoteArea: function() {
+            app.writeItView.setActiveListNote(this);
+
             let selectedNote = this.dataset.note;
             app.writeItView.notesViewerTitle.innerText = app.writeItModel.allNotes[selectedNote].noteTitle;
             app.writeItView.notesViewerBody.innerText = app.writeItModel.allNotes[selectedNote].noteBody;
