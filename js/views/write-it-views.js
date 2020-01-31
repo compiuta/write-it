@@ -12,7 +12,7 @@
         },
         createNoteElement: function() {
             this.noteListContainer = document.createElement('div');
-            this.noteTitle = document.createElement('div');
+            this.noteTitle = document.createElement('h3');
             this.noteCreatedDate = document.createElement('div');
 
             this.noteListContainer.classList.add('note-list-container');
@@ -22,9 +22,18 @@
             return this.noteCreatedDate, this.noteTitle, this.noteListContainer;
 
         },
-        init: function() {
+        setActiveListNote: function(noteSelected) {
+            let currenSelectedNote = document.querySelectorAll('.selected-note');
+
+            currenSelectedNote.forEach(function(el){
+                el.classList.remove('selected-note');
+            });
+
+            noteSelected.classList.add('selected-note');
+        },
+        getDomElements: function() {
             this.createNoteButton = document.querySelector('[data-js="create-note-button"]');
-            this.notesContainer = document.querySelector('[data-js="notes-container"]');
+            this.notesContainer = document.querySelector('[data-js="notes-list-container"]');
             this.notesTitle = document.querySelector('[data-js="notes-title"]');
             this.notesBody = document.querySelector('[data-js="notes-body"]');
             this.createNoteModal = document.querySelector('[data-js="create-note-modal"]');
@@ -35,8 +44,12 @@
             this.notesViewerTitle = document.querySelector('[data-js="notes-viewer-title"]');
             this.notesViewerDate = document.querySelector('[data-js="notes-viewer-date"]');
             this.notesViewerBody = document.querySelector('[data-js="notes-viewer-body"]');
-
+        },
+        init: function() {
+            
+            this.getDomElements();
             this.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
+            this.getDomElements();
             this.render();
         },
         render: function() {
