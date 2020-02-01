@@ -14,21 +14,22 @@
         </header>
         <div class="notes-area-container">
             <div class="notes-list-area-container">
-                <div data-js="create-note-modal" class="create-note-element hide">
+                <div data-js="create-note-modal" class="create-note-modal hide">
+                    <span data-js="close-note-modal" class="close-note-modal primary-button" title="close">x</span>
                     <form action="" class="create-note-form">
                         <div class="form-element-container">
-                            <label class="form-label" for="note-title">Note Title:</label>
+                            <label class="form-label" for="note-title">Note Title</label>
                             <input id="note-title" data-js="create-note-title" type="text" class="create-note-title form-element">
                         </div>
                         <div class="form-element-container">
-                            <label class="form-label" for="note-message">Note Message:</label>
+                            <label class="form-label" for="note-message">Note Message</label>
                             <textarea  id="note-message" data-js="create-note-text-area" class="create-note-text-area form-element"></textarea>
                         </div>
                         <button data-js="create-note-submit" class="create-note-submit primary-button">Save Note</button>
                     </form>
                     <div data-js="create-note-alert" class="create-note-alert hide"></div>
                 </div>
-                <h2 class="notes-list-title">current Notes <span data-js="create-note-button" class="create-note-button primary-button">create note</span></h2>
+                <h2 class="notes-list-title">My Notes <span data-js="create-note-button" class="create-note-button primary-button">Create Note</span></h2>
                 <div data-js="notes-list-container" class="notes-list-container">
     
                 </div>
