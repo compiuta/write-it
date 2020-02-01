@@ -10,6 +10,7 @@
             }
 
             if(app.writeItView.createNoteTitle.value.replace(/ /g, '') !== '' && app.writeItView.createNoteTextArea.value.replace(/ /g, '') !== '') {
+             
                 app.writeItModel.setData(noteObject);
 
                 app.writeItView.createNoteTitle.value = '';
@@ -30,19 +31,27 @@
                 app.writeItView.showNoteAlert('Please Fill Out All Fields');
             }
         },
+        removeNote: function(e) {
+            e.stopPropagation();
+            let noteToDelete = this.parentNode.dataset.note;
+            this.parentNode.classList.add('hide');
+            app.writeItModel.deleteData(noteToDelete);
+        },
         populateNoteList: function() {
             let noteListFragment = document.createDocumentFragment();
 
-            for(let i = 0; i < Object.keys(app.writeItModel.allNotes).length; i++) {
+            for(let key in app.writeItModel.allNotes) {
                 app.writeItView.createNoteElement();
-                app.writeItView.noteTitle.innerText = app.writeItModel.allNotes['note' + i].noteTitle;
-                app.writeItView.noteCreatedDate.innerText = app.writeItModel.allNotes['note' + i].noteCreatedDate;
-
-                app.writeItView.noteListContainer.setAttribute('data-note', 'note' + i);
+                app.writeItView.noteTitle.innerText = app.writeItModel.allNotes[key].noteTitle;
+                app.writeItView.noteCreatedDate.innerText = app.writeItModel.allNotes[key].noteCreatedDate;
+                app.writeItView.noteListContainer.setAttribute('data-note', key);
                 app.writeItView.noteListContainer.appendChild(app.writeItView.noteTitle);
                 app.writeItView.noteListContainer.appendChild(app.writeItView.noteCreatedDate);
+                app.writeItView.noteDeleteButton.addEventListener('click', this.removeNote);
+                app.writeItView.noteListContainer.appendChild(app.writeItView.noteDeleteButton);
                 app.writeItView.noteListContainer.addEventListener('click', this.populateNoteArea);
-                noteListFragment.appendChild(app.writeItView.noteListContainer);
+
+                noteListFragment.prepend(app.writeItView.noteListContainer);
             }
             
             app.writeItView.notesContainer.appendChild(noteListFragment);
