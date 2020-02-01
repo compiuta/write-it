@@ -16,7 +16,7 @@
                 app.writeItView.createNoteTitle.value = '';
                 app.writeItView.createNoteTextArea.value = '';
 
-                app.writeItView.showNoteAlert('Message Saved Successfully!');
+                app.writeItView.showNoteAlert('Note Saved Successfully!');
 
                 app.writeItView.render();
             } else {
