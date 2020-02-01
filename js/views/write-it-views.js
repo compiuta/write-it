@@ -2,6 +2,7 @@
     let writeItView = {
         toggleCreateNote: function() {
             writeItView.createNoteModal.classList.toggle('hide');
+            writeItView.createNoteButton.classList.toggle('hide');
         },
         showNoteAlert: function(message) {
             this.createNoteAlert.innerText = message;
@@ -13,14 +14,18 @@
         createNoteElement: function() {
             this.noteListContainer = document.createElement('div');
             this.noteTitle = document.createElement('h3');
+            this.noteDeleteButton = document.createElement('span');
             this.noteCreatedDate = document.createElement('div');
 
             this.noteListContainer.classList.add('note-list-container');
             this.noteTitle.classList.add('note-list-title');
+            this.noteDeleteButton.classList.add('note-delete-button');
+            this.noteDeleteButton.setAttribute('data-js', 'note-delete-button');
             this.noteCreatedDate.classList.add('note-list-date');
-            
-            return this.noteCreatedDate, this.noteTitle, this.noteListContainer;
 
+            this.noteDeleteButton.innerText = 'x';
+            
+            return this.noteCreatedDate, this.noteDeleteButton,  this.noteTitle, this.noteListContainer;
         },
         setActiveListNote: function(noteSelected) {
             let currenSelectedNote = document.querySelectorAll('.selected-note');
@@ -44,12 +49,12 @@
             this.notesViewerTitle = document.querySelector('[data-js="notes-viewer-title"]');
             this.notesViewerDate = document.querySelector('[data-js="notes-viewer-date"]');
             this.notesViewerBody = document.querySelector('[data-js="notes-viewer-body"]');
+            this.closeNoteModal = document.querySelector('[data-js="close-note-modal"]');
         },
         init: function() {
-            
             this.getDomElements();
+            this.closeNoteModal.addEventListener('click', this.toggleCreateNote);
             this.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
-            this.getDomElements();
             this.render();
         },
         render: function() {
