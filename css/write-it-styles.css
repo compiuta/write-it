@@ -43,6 +43,21 @@
     text-decoration: none;
 }
 
+.create-note-modal {
+    box-shadow: 0px 0px 10px grey;
+    padding: 20px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.close-note-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 23px;
+    padding: 0 10px;
+}
+
 .create-note-submit {
     padding: 5px;
     font-size: 16px;
@@ -63,15 +78,17 @@
 
 .form-element-container {
     display: flex;
+    flex-direction: column;
     padding: 0 0 10px 0;
 }
 
 .form-label {
-    flex: 1 1 auto;
+    margin-bottom: 4px;
 }
 
 .form-element {
-    width: 70%;
+    padding: 10px;
+    font-family: 'Oswald', sans-serif;
 }
 
 .notes-list-title {
@@ -120,6 +137,26 @@
     border-bottom: 5px solid black;
     border-left: 5px solid transparent;
     color: #333;
+    position: relative;
+}
+
+.note-delete-button {
+    position: absolute;
+    right: -20px;
+    top: 26px;
+    padding: 5px 10px;
+    background-color: #F25D07;
+    color: white;
+    z-index: 1;
+    display: none;
+}
+
+.note-delete-button:hover {
+    box-shadow: 3px 3px 1px black;
+}
+
+.note-list-container:hover .note-delete-button {
+    display: flex;
 }
 
 .note-list-container:hover,
