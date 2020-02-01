@@ -164,3 +164,35 @@
     border-bottom: 5px solid #F25D07;
     border-left: 5px solid #F25D07;
 }
+
+@media (max-width: 787px) {
+    .notes-area-container {
+        display: block;
+    }
+
+    .notes-list-area-container {
+        width: 100%;
+    }
+
+    .notes-list-container {
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .note-delete-button {
+        right: 5px;
+    }
+
+    .note-list-title {
+        max-width: 90%;
+    }
+
+    .vertical-divider {
+        display: none;
+    }
+
+    .note-viewer-area {
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+}
