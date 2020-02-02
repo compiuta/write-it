@@ -5,8 +5,8 @@
         months: ["January", "February", "March", "April", "May", "June", "July",
          "August", "September", "October", "November", "December"],
         getData: function() {
-            this.allNotes = JSON.parse(localStorage.getItem('allNotes'));;
-            this.noteCount = JSON.parse(localStorage.getItem('noteCount'));;
+            this.allNotes = JSON.parse(localStorage.getItem('allNotes'));
+            this.noteCount = JSON.parse(localStorage.getItem('noteCount'));
         },
         setData: function(noteObject) {
             if(JSON.parse(localStorage.getItem('allNotes')) && noteObject){
