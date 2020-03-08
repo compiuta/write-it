@@ -36,6 +36,10 @@
             let noteToDelete = this.parentNode.dataset.note;
             this.parentNode.classList.add('hide');
             app.writeItModel.deleteData(noteToDelete);
+            
+            if(app.writeItView.notesViewerArea.dataset.currentNote === noteToDelete) {
+                app.writeItView.clearNoteArea();
+            }
         },
         populateNoteList: function() {
             let noteListFragment = document.createDocumentFragment();
@@ -62,6 +66,7 @@
             let selectedNote = this.dataset.note;
             app.writeItView.notesViewerTitle.innerText = app.writeItModel.allNotes[selectedNote].noteTitle;
             app.writeItView.notesViewerBody.innerText = app.writeItModel.allNotes[selectedNote].noteBody;
+            app.writeItView.notesViewerArea.setAttribute('data-current-note', selectedNote);
             app.writeItView.notesViewerDate.innerText = app.writeItModel.allNotes[selectedNote].noteCreatedDate;
 
         },
