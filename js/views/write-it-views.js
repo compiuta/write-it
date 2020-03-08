@@ -36,6 +36,13 @@
 
             noteSelected.classList.add('selected-note');
         },
+        clearNoteArea: function() {
+            console.log('clearing note area');
+            app.writeItView.notesViewerTitle.innerText = '';
+            app.writeItView.notesViewerBody.innerText = '';
+            app.writeItView.notesViewerArea.removeAttribute('data-current-note');
+            app.writeItView.notesViewerDate.innerText = '';
+        },
         getDomElements: function() {
             this.createNoteButton = document.querySelector('[data-js="create-note-button"]');
             this.notesContainer = document.querySelector('[data-js="notes-list-container"]');
@@ -46,6 +53,7 @@
             this.createNoteSubmit = document.querySelector('[data-js="create-note-submit"]');
             this.createNoteTitle = document.querySelector('[data-js="create-note-title"]');
             this.createNoteAlert = document.querySelector('[data-js="create-note-alert"]');
+            this.notesViewerArea = document.querySelector('[data-js="note-viewer-area"]');
             this.notesViewerTitle = document.querySelector('[data-js="notes-viewer-title"]');
             this.notesViewerDate = document.querySelector('[data-js="notes-viewer-date"]');
             this.notesViewerBody = document.querySelector('[data-js="notes-viewer-body"]');
