@@ -43,6 +43,12 @@
     text-decoration: none;
 }
 
+.notes-body__save-edit {
+    align-self: flex-start;
+    margin: 4px;
+    padding: 4px;
+}
+
 .create-note-modal {
     box-shadow: 0px 0px 10px grey;
     padding: 20px;
@@ -105,6 +111,8 @@
     min-height: 300px;
     max-height: 500px;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .notes-title {
@@ -118,12 +126,25 @@
 .notes-body {
     margin: 0;
     padding: 10px;
+    flex:1 1 auto;
+    resize: none;
+    font-family: Oswald, sans-serif;
+    color: #000;
+    font-size: 16px;
+}
+
+.read-mode {
+    border: none;
+    background-color: transparent;
+    
+    outline: none;
 }
 
 .notes-viewer-header {
     padding: 0 10px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .vertical-divider {
