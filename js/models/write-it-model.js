@@ -8,6 +8,15 @@
             this.allNotes = JSON.parse(localStorage.getItem('allNotes'));
             this.noteCount = JSON.parse(localStorage.getItem('noteCount'));
         },
+        editData: function(noteObject) {
+            let data = JSON.parse(localStorage.getItem('allNotes'));
+
+            data[noteObject.noteID].noteBody = noteObject.newMesage;
+
+            localStorage.setItem('allNotes', JSON.stringify(data));
+
+            this.getData();
+        },
         setData: function(noteObject) {
             if(JSON.parse(localStorage.getItem('allNotes')) && noteObject){
                 let data = JSON.parse(localStorage.getItem('allNotes'));
