@@ -36,12 +36,37 @@
 
             noteSelected.classList.add('selected-note');
         },
+        toggleSaveEditButton: function() {
+            app.writeItView.notesBodySaveEditButton.classList.toggle('hide');
+        },
+        notesBodyToggleEditView: function(ifDeletingNote) {
+            
+            if(app.writeItView.notesViewerArea.hasAttribute('data-current-note') || ifDeletingNote === true) {
+                app.writeItView.notesViewerBody.classList.toggle('read-mode');
+                app.writeItView.notesViewerBody.classList.toggle('edit-mode');
+                app.writeItView.toggleSaveEditButton();
+
+                if(app.writeItView.notesViewerBody.hasAttribute('readonly')) {
+                    app.writeItView.notesViewerBody.removeAttribute('readonly');
+                    app.writeItView.notesViewerBody.removeEventListener('click', app.writeItView.notesBodyToggleEditView);
+                } else {
+                    app.writeItView.notesViewerBody.setAttribute('readonly', 'readonly');
+                    app.writeItView.notesViewerBody.addEventListener('click', app.writeItView.notesBodyToggleEditView);
+                }
+            } else {
+                return;
+            }
+            
+        },
         clearNoteArea: function() {
-            console.log('clearing note area');
             app.writeItView.notesViewerTitle.innerText = '';
-            app.writeItView.notesViewerBody.innerText = '';
+            app.writeItView.notesViewerBody.value = '';
             app.writeItView.notesViewerArea.removeAttribute('data-current-note');
             app.writeItView.notesViewerDate.innerText = '';
+        },
+        addEventListeners: function() {
+            app.writeItView.notesViewerBody.addEventListener('click', app.writeItView.notesBodyToggleEditView);
+            app.writeItView.notesBodySaveEditButton.addEventListener('click', app.writeItController.saveNoteBodyEdit);
         },
         getDomElements: function() {
             this.createNoteButton = document.querySelector('[data-js="create-note-button"]');
@@ -58,12 +83,14 @@
             this.notesViewerDate = document.querySelector('[data-js="notes-viewer-date"]');
             this.notesViewerBody = document.querySelector('[data-js="notes-viewer-body"]');
             this.closeNoteModal = document.querySelector('[data-js="close-note-modal"]');
+            this.notesBodySaveEditButton = document.querySelector('[data-js="notes-body-save-edit"]');
         },
         init: function() {
             this.getDomElements();
             this.closeNoteModal.addEventListener('click', this.toggleCreateNote);
             this.createNoteButton.addEventListener('click', writeItView.toggleCreateNote);
             this.render();
+            this.addEventListeners();
         },
         render: function() {
             this.notesContainer.innerHTML = '';
