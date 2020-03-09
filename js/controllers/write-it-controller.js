@@ -19,6 +19,7 @@
                 app.writeItView.showNoteAlert('Note Saved Successfully!');
 
                 app.writeItView.render();
+                
             } else {
                 if(app.writeItView.createNoteTitle.value.replace(/ /g, '') === '') {
                     app.writeItView.createNoteTitle.value = '';
@@ -31,6 +32,15 @@
                 app.writeItView.showNoteAlert('Please Fill Out All Fields');
             }
         },
+        saveNoteBodyEdit: function() {
+            let newObjectData = {
+                noteID: app.writeItView.notesViewerArea.dataset.currentNote,
+                newMesage: app.writeItView.notesViewerBody.value
+            }
+
+            app.writeItView.notesBodyToggleEditView();
+            app.writeItModel.editData(newObjectData);
+        },
         removeNote: function(e) {
             e.stopPropagation();
             let noteToDelete = this.parentNode.dataset.note;
@@ -39,6 +49,10 @@
             
             if(app.writeItView.notesViewerArea.dataset.currentNote === noteToDelete) {
                 app.writeItView.clearNoteArea();
+            }
+
+            if(app.writeItView.notesViewerBody.classList.contains('edit-mode')) {
+                app.writeItView.notesBodyToggleEditView(true);
             }
         },
         populateNoteList: function() {
@@ -54,6 +68,10 @@
                 app.writeItView.noteDeleteButton.addEventListener('click', this.removeNote);
                 app.writeItView.noteListContainer.appendChild(app.writeItView.noteDeleteButton);
                 app.writeItView.noteListContainer.addEventListener('click', this.populateNoteArea);
+                
+                if(app.writeItView.notesViewerArea.dataset.currentNote === key) {
+                    app.writeItView.noteListContainer.classList.add('selected-note');
+                 }
 
                 noteListFragment.prepend(app.writeItView.noteListContainer);
             }
@@ -61,11 +79,16 @@
             app.writeItView.notesContainer.appendChild(noteListFragment);
         },
         populateNoteArea: function() {
+
+            if(app.writeItView.notesViewerBody.classList.contains('edit-mode')) {
+                app.writeItView.notesBodyToggleEditView();
+            }
+
             app.writeItView.setActiveListNote(this);
 
             let selectedNote = this.dataset.note;
             app.writeItView.notesViewerTitle.innerText = app.writeItModel.allNotes[selectedNote].noteTitle;
-            app.writeItView.notesViewerBody.innerText = app.writeItModel.allNotes[selectedNote].noteBody;
+            app.writeItView.notesViewerBody.value = app.writeItModel.allNotes[selectedNote].noteBody;
             app.writeItView.notesViewerArea.setAttribute('data-current-note', selectedNote);
             app.writeItView.notesViewerDate.innerText = app.writeItModel.allNotes[selectedNote].noteCreatedDate;
 
