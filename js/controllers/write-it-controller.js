@@ -6,7 +6,7 @@
             let noteObject = {
                 noteTitle: app.writeItView.createNoteTitle.value,
                 noteBody: app.writeItView.createNoteTextArea.value,
-                noteCreatedDate: app.writeItModel.months[currentDate.getMonth()] + ' ' + currentDate.getDay() + ', ' + currentDate.getFullYear()
+                noteCreatedDate: app.writeItModel.months[currentDate.getMonth()] + ' ' + currentDate.getDate() + ', ' + currentDate.getFullYear()
             }
 
             if(app.writeItView.createNoteTitle.value.replace(/ /g, '') !== '' && app.writeItView.createNoteTextArea.value.replace(/ /g, '') !== '') {
