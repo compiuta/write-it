@@ -28,8 +28,7 @@
                 localStorage.setItem('allNotes', JSON.stringify(data));
                 localStorage.setItem('noteCount', JSON.stringify(notesCreated));
             } else if(!(JSON.parse(localStorage.getItem('allNotes')))) {
-                localStorage.setItem('allNotes', JSON.stringify({}));
-                localStorage.setItem('noteCount', JSON.stringify(0));
+                this.newUserData();
             }
 
             this.getData();
@@ -42,7 +41,28 @@
 
             this.getData();
         },
+        newUserData: function() {
+            if(!localStorage.getItem('newUser')) {
+                let currentDate = new Date();
+
+                const newUserNote = {
+                    note0: {
+                        noteTitle: 'Welcome 😀',
+                        noteBody: 'Start creating your own notes by clicking on the create note button',
+                        noteCreatedDate: this.months[currentDate.getMonth()] + ' ' + currentDate.getDate() + ', ' + currentDate.getFullYear()
+                    }
+                }
+
+                localStorage.setItem('allNotes', JSON.stringify(newUserNote));
+                localStorage.setItem('newUser', JSON.stringify(0));
+                localStorage.setItem('noteCount', JSON.stringify(1));
+            } else {
+                localStorage.setItem('noteCount', JSON.stringify(0));
+            }
+        }
+        ,
         init: function() {
+            
             this.setData();
         }
     }
