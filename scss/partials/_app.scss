@@ -10,6 +10,7 @@
 
 .max-width-container {
     max-width: 1024px;
+    margin: 0 auto;
 }
 
 .hide {
@@ -22,8 +23,8 @@
 }
 
 .main-title {
-    background-color: #F25D07;
-    color: white;
+    background-color: $primary-color;
+    color: $light-color;
     padding: 5px 10px;
 }
 
@@ -39,8 +40,8 @@
 }
 
 .primary-button {
-    background-color: #F25D07;
-    color: white;
+    background-color: $primary-color;
+    color: $light-color;
     padding: 0 5px;
     cursor: pointer;
     border: 0;
@@ -54,7 +55,7 @@
 }
 
 .create-note-modal {
-    box-shadow: 0px 0px 10px grey;
+    box-shadow: 0px 0px 10px $grey;
     padding: 20px;
     margin-bottom: 16px;
     position: relative;
@@ -75,7 +76,7 @@
 }
 
 .primary-button:hover {
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 1px $dark-color;
 }
 
 .create-note-alert {
@@ -111,7 +112,7 @@
 
 .note-viewer-area {
     width: 60%;
-    box-shadow: 0px 0px 10px grey;
+    box-shadow: 0px 0px 10px $grey;
     min-height: 300px;
     max-height: 500px;
     overflow: auto;
@@ -121,10 +122,10 @@
 
 .notes-title {
     margin: 5px 10px 10px 0;
-    background-color: #F25D07;
-    color: white;
+    background-color: $primary-color;
+    color: $light-color;
     padding: 0 5px;
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 1px $dark-color;
 }
 
 .notes-body {
@@ -133,14 +134,13 @@
     flex:1 1 auto;
     resize: none;
     font-family: Oswald, sans-serif;
-    color: #000;
+    color: $dark-color;
     font-size: 16px;
 }
 
 .read-mode {
     border: none;
     background-color: transparent;
-    
     outline: none;
 }
 
@@ -153,13 +153,13 @@
 
 .vertical-divider {
     width: 2px;
-    background-color: black;
+    background-color: $dark-color;
 }
 
 .note-list-container {
     cursor: pointer;
     padding: 10px;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid $dark-color;
     border-left: 5px solid transparent;
     color: #333;
     position: relative;
@@ -170,14 +170,14 @@
     right: -20px;
     top: 26px;
     padding: 5px 10px;
-    background-color: #F25D07;
-    color: white;
+    background-color: $primary-color;
+    color: $light-color;
     z-index: 1;
     display: none;
 }
 
 .note-delete-button:hover {
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 1px $dark-color;
 }
 
 .note-list-container:hover .note-delete-button {
@@ -186,8 +186,8 @@
 
 .note-list-container:hover,
 .note-list-container.selected-note {
-    border-bottom: 5px solid #F25D07;
-    border-left: 5px solid #F25D07;
+    border-bottom: 5px solid $primary-color;
+    border-left: 5px solid $primary-color;
 }
 
 @media (max-width: 787px) {
