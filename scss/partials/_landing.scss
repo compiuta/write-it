@@ -3,8 +3,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.landing-page p {
+.landing-page img {
+    max-width: 100%;
+}
 
+.landing-page p {
+    line-height: 2;
+    font-size: 14px;
 }
 
 .landing-header {
@@ -41,4 +46,38 @@
     width: 80px;
     fill: $light-color;
     margin: 0 5px 0 0;
+}
+
+.hero-area {
+    background-color: $primary-light;
+    padding: 60px 0 46px 0;
+    color: $light-color;
+}
+
+.hero-area__inner {
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-area__info {
+    width: 70%;
+    margin: 0 50px 0 0;
+}
+
+.hero-area__info-title {
+    font-size: 26px;
+    margin: 14px 0;
+}
+
+.hero-area__info-button {
+    background-color: $light-color;
+    font-weight: bold;
+    color: $dark-color;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.hero-area__image {
+    margin-bottom: -74px;
+    box-shadow: 0px 10px 76px $dark-color;
 }
