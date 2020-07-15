@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.max-width-container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.hide {
+    display: none!important;
+}
+
+.background-dark {
+    background-color: $dark-color;
+}
+
+.background-light {
+    background-color: $light-color;
+}
+
+.text-light {
+    color: $light-color!important;
+}
+
+.text-right {
+    text-align: right;
+}
