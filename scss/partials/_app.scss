@@ -1,20 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
 .body-tag {
     margin: 0;
     max-width: 1800px;
     font-family: 'Oswald', sans-serif;
-}
-
-.max-width-container {
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-.hide {
-    display: none!important;
 }
 
 .main-header {
@@ -55,7 +42,7 @@
 }
 
 .create-note-modal {
-    box-shadow: 0px 0px 10px $grey;
+    box-shadow: 0px 0px 10px $grey-color;
     padding: 20px;
     margin-bottom: 16px;
     position: relative;
@@ -112,7 +99,7 @@
 
 .note-viewer-area {
     width: 60%;
-    box-shadow: 0px 0px 10px $grey;
+    box-shadow: 0px 0px 10px $grey-color;
     min-height: 300px;
     max-height: 500px;
     overflow: auto;

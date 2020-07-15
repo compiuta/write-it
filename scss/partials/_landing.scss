@@ -9,7 +9,14 @@
 
 .landing-page p {
     line-height: 2;
-    font-size: 14px;
+    font-size: 12px;
+    color: $grey-color;
+}
+
+.landing-page h4 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 10px 0;
 }
 
 .landing-header {
@@ -50,7 +57,7 @@
 
 .hero-area {
     background-color: $primary-light;
-    padding: 60px 0 46px 0;
+    padding: 130px 0 46px 0;
     color: $light-color;
 }
 
@@ -80,4 +87,55 @@
 .hero-area__image {
     margin-bottom: -74px;
     box-shadow: 0px 10px 76px $dark-color;
+}
+
+.header-seperator {
+    width: 70px;
+    height: 1px;
+    margin: 10px 0;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.features-area {
+    padding: 160px 0 60px 0;
+}
+
+.features-area__features-container {
+    display: flex;
+    margin: 60px 0 0 0;
+}
+
+.features-area__content-item {
+    display: flex;
+}
+
+.features-area__content {
+    width: 25%;
+}
+
+.features-area__image-container {
+    flex: 1 1 auto;
+    margin: 0 40px;
+    text-align: center;
+}
+
+.features-area__icon-container {
+    margin: 0 10px;
+}
+
+.features-area__feature-title {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: 0;
+}
+
+.features-area__content-last {
+    margin: 20px 0 0 0;
 }
