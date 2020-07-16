@@ -26,15 +26,6 @@
     position: relative;
 }
 
-.primary-button {
-    background-color: $primary-color;
-    color: $light-color;
-    padding: 0 5px;
-    cursor: pointer;
-    border: 0;
-    text-decoration: none;
-}
-
 .notes-body__save-edit {
     align-self: flex-start;
     margin: 4px;
@@ -60,10 +51,6 @@
     padding: 5px;
     font-size: 16px;
     font-weight: bold;
-}
-
-.primary-button:hover {
-    box-shadow: 3px 3px 1px $dark-color;
 }
 
 .create-note-alert {

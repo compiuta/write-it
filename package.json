@@ -4,7 +4,7 @@
   "description": "You can find the app at https://compiuta.github.io/write-it/",
   "main": "index.html",
   "scripts": {
-    "scss": "node-sass -r --output-style compressed -o css scss/write-it-styles.scss",
+    "scss": "node-sass -r --output-style compressed -o css scss",
     "watch:css": "onchange 'scss/' -- npm run scss"
   },
   "repository": {

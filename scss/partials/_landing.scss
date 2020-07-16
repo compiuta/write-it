@@ -3,17 +3,17 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.landing-page img {
+img {
     max-width: 100%;
 }
 
-.landing-page p {
+p {
     line-height: 2;
     font-size: 12px;
     color: $grey-color;
 }
 
-.landing-page h4 {
+h4 {
     font-size: 20px;
     text-transform: uppercase;
     margin: 10px 0;
@@ -76,7 +76,7 @@
     margin: 14px 0;
 }
 
-.hero-area__info-button {
+.landing-page__button--light {
     background-color: $light-color;
     font-weight: bold;
     color: $dark-color;
@@ -95,7 +95,8 @@
     margin: 10px 0;
 }
 
-.header-center {
+.header-center,
+.break-area__title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,4 +139,20 @@
 
 .features-area__content-last {
     margin: 20px 0 0 0;
+}
+
+.break-area {
+    background-color: $primary-light;
+    padding: 64px 0;
+    color: $light-color;
+}
+
+.break-area__inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.break-area__image-container {
+    margin: 80px 0 70px 0;
 }

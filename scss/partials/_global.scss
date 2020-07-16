@@ -26,3 +26,16 @@
 .text-right {
     text-align: right;
 }
+
+.primary-button {
+    background-color: $primary-color;
+    color: $light-color;
+    padding: 0 5px;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+}
+
+.primary-button:hover {
+    box-shadow: 3px 3px 1px $dark-color;
+}
