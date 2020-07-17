@@ -67,7 +67,7 @@ h4 {
 }
 
 .hero-area__info {
-    width: 70%;
+    width: 54%;
     margin: 0 50px 0 0;
 }
 
@@ -130,7 +130,8 @@ h4 {
     margin: 0 10px;
 }
 
-.features-area__feature-title {
+.features-area__feature-title,
+.benefits-area__benefits-title {
     font-weight: normal;
     text-transform: uppercase;
     font-size: 16px;
@@ -155,4 +156,50 @@ h4 {
 
 .break-area__image-container {
     margin: 80px 0 70px 0;
+}
+
+.benefits-area {
+    padding: 60px 0;
+}
+
+.benefits-area__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.benefits-area__image-container {
+    width: 60%;
+}
+
+.benefits-area__benefits-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefits-area__title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.benefits-area__benefits {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 46px 0 0 0;
+}
+
+.benefits-area__benefits-item {
+    display: flex;
+}
+
+.benefits-area__icon {
+    font-size: 20px;
+    margin: 0 0 0 10px;
+}
+
+.benefits-area__content {
+    text-align: right;
 }
