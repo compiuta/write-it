@@ -41,6 +41,14 @@ h4 {
     border-bottom: 2px solid $light-color;
 }
 
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu__icon {
+    fill: $light-color;
+}
+
 .landing-header__inner {
     display: flex;
     justify-content: space-between;
@@ -61,7 +69,7 @@ h4 {
 
 .hero-area {
     background-color: $primary-light;
-    padding: 130px 0 46px 0;
+    padding: 130px 20px 46px 20px;
     color: $light-color;
 }
 
@@ -108,7 +116,7 @@ h4 {
 }
 
 .features-area {
-    padding: 160px 0 60px 0;
+    padding: 160px 20px 60px 20px;
 }
 
 .features-area__features-container {
@@ -148,7 +156,7 @@ h4 {
 
 .break-area {
     background-color: $primary-light;
-    padding: 64px 0;
+    padding: 64px 20px;
     color: $light-color;
 }
 
@@ -163,7 +171,7 @@ h4 {
 }
 
 .benefits-area {
-    padding: 60px 0;
+    padding: 60px 20px;
 }
 
 .benefits-area__inner {
@@ -210,7 +218,7 @@ h4 {
 
 .price {
     background-color: $primary-light;
-    padding: 46px 0;
+    padding: 46px 20px;
 }
 
 .price__title-container {
@@ -280,4 +288,158 @@ h4 {
     text-transform: uppercase;
     font-size: 12px;
     display: inline-block;
+}
+
+.follow {
+    padding: 46px 0;
+}
+
+.follow__title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.follow__title-description {
+    max-width: 60%;
+    text-align: center;
+}
+
+.follow__links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 0 0;
+}
+
+.follow__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.follow__link-image {
+    width: 30px;
+}
+
+.follow__link-emoji {
+    font-size: 26px;
+}
+
+.main-footer {
+    background-color: $primary-light;
+    padding: 46px 0;
+}
+
+.main-footer__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-footer__logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-footer__logo {
+    width: 30%;
+    fill: $light-color;
+}
+
+.main-nav__title {
+    color: $light-color;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+}
+
+@media (max-width: 850px) {
+    .hero-area {
+        padding: 20px;
+    }
+    
+    .hero-area__inner {
+        display: block;
+    }
+
+    .hero-area__info {
+        margin-bottom: 70px;
+        width: 100%;
+    }
+
+    .features-area__features-container {
+        flex-direction: column;
+        margin: 20px 0 0 0;
+    }
+
+    .features-area__image-container {
+        margin: 20px 0;
+    }
+
+    .features-area__content {
+        width: 100%;
+        display: flex;
+    }
+
+    .features-area__content-last {
+        margin: 0
+    }
+
+    .benefits-area__inner {
+        flex-direction: column;
+    }
+
+    .benefits-area__image-container {
+        order: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    .benefits-area__benefits-container {
+        width: 100%;
+    }
+
+    .benefits-area__benefits-item {
+        margin: 0 0 26px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    .landing-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        min-height: 500px;
+        overflow-y: auto;
+        background-color: $primary-dark;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: -1;
+    }
+    
+    .landing-nav__link {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+    }
+
+    .features-area__content {
+        display: block;
+    }
+
+    .features-area__content-item {
+        margin: 20px 0;
+    }
 }
