@@ -41,12 +41,9 @@ h4 {
     border-bottom: 2px solid $light-color;
 }
 
-.mobile-menu {
+.mobile-menu,
+.mobile-menu--close {
     display: none;
-}
-
-.mobile-menu__icon {
-    fill: $light-color;
 }
 
 .landing-header__inner {
@@ -90,10 +87,12 @@ h4 {
 
 .landing-page__button--light {
     background-color: $light-color;
-    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: normal;
     color: $dark-color;
-    padding: 5px 10px;
+    padding: 10px 14px;
     display: inline-block;
+    font-size: 12px;
 }
 
 .hero-area__image {
@@ -350,10 +349,35 @@ h4 {
     fill: $light-color;
 }
 
-.main-nav__title {
+.main-footer__title {
     color: $light-color;
     font-weight: normal;
     margin: 0 0 0 10px;
+}
+
+.scroll-top__container {
+    position: fixed;
+    bottom: 60px;
+    right: 40px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+}
+
+.scroll-top-arrow {
+    height: 30px;
+    width: 30px;
+    opacity: .7;
+}
+
+.scroll-top__container.show-fade-in {
+    z-index: 1;
+    opacity: .5;
+}
+
+.scroll-top__container:hover {
+    opacity: 1;
 }
 
 @media (max-width: 850px) {
@@ -411,6 +435,15 @@ h4 {
     .mobile-menu {
         display: block;
     }
+
+    .mobile-menu--close {
+        display: flex;
+        position: absolute;
+        top: 10px;
+        right: 24px;
+        font-size: 34px;
+        color: $light-color;
+    }
     
     .landing-nav {
         display: flex;
@@ -424,15 +457,23 @@ h4 {
         overflow-y: auto;
         background-color: $primary-dark;
         top: 0;
+        left: 100%;
+        z-index: 2;
+        transition: left .3s ease-in-out;
+    }
+
+    .landing-nav.landing-nav__mobile--open {
         left: 0;
-        opacity: 0;
-        z-index: -1;
+    }
+
+    .mobile-menu__icon {
+        fill: $light-color;
     }
     
     .landing-nav__link {
         margin: 0;
         padding: 0;
-        font-size: 36px;
+        font-size: 30px;
     }
 
     .features-area__content {
